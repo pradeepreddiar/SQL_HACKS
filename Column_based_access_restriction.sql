@@ -10,7 +10,7 @@ SELECT pii_data.customer_id, pii_data."domain",
             WHEN pii_users.pii_permission IS NULL THEN 'NULL'::character varying
             ELSE pii_data.clear_email
         END AS clear_email
-   FROM ( SELECT customers.customer_id, customers."domain", t_customers.clear_name, t_customers.clear_email, 'Y'::character varying AS pii_permission
+   FROM ( SELECT customers.customer_id, customers."domain",customers.clear_name, customers.clear_email, 'Y'::character varying AS pii_permission
            FROM customer_info.customers) pii_data
    LEFT JOIN ( SELECT cust_secure_users.login_name, 'Y'::character varying AS pii_permission
            FROM customer_info.cust_secure_users
