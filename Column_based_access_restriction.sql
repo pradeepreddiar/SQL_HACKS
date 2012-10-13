@@ -1,6 +1,6 @@
-/*View based column level access restriction based on the session usser*/
+/*View based column level access restriction based on the session user Syntax:PostgreSQL*/
 
-
+Create View {View_name} as
 SELECT pii_data.customer_id, pii_data."domain",
         CASE
             WHEN pii_users.pii_permission IS NULL THEN 'NULL'::character varying
